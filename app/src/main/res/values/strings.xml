@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">application_3</string>
+
+    <string-array name="Languajes">
+        <item>Choose a technology </item>
+        <item>Kotlin</item>
+        <item>Python</item>
+        <item>Html</item>
+
+    </string-array>
+
+
+
+</resources>
