@@ -11,33 +11,32 @@ class MainActivityViewModel : ViewModel() {
     val viewState: LiveData<MainActivityViewState> get() = _viewState
 
 
-    fun validateName(name:String){
-        if (name.isEmpty() && name.length<2){
+    fun validateName(name: String) {
+        if (name.isEmpty() || name.length < 2) {
             _viewState.value = MainActivityViewState.FieldErrorName
             _viewState.value = MainActivityViewState.FieldErrorBtn
-
-        }else{
+        } else {
             _viewState.value = MainActivityViewState.SuccessName
             _viewState.value = MainActivityViewState.SuccessBtn
 
         }
     }
-    fun validateEmail(email:String){
-        if (email.isEmpty() && email.length<5){
 
+    fun validateEmail(email: String) {
+        if (email.isEmpty() || email.length < 5) {
             _viewState.value = MainActivityViewState.FieldErrorEmail
             _viewState.value = MainActivityViewState.FieldErrorBtn
-        }else{
+        } else {
             _viewState.value = MainActivityViewState.SuccessEmail
             _viewState.value = MainActivityViewState.SuccessBtn
         }
     }
-    fun validateDni(dni:String){
-        if (dni.isEmpty() && dni.length == 8){
 
+    fun validateDni(dni: String) {
+        if (!dni.isEmpty() && dni.length > 7) {
             _viewState.value = MainActivityViewState.SuccessDni
             _viewState.value = MainActivityViewState.SuccessBtn
-        }else{
+        } else {
             _viewState.value = MainActivityViewState.FieldErrorDni
             _viewState.value = MainActivityViewState.FieldErrorBtn
         }
@@ -47,7 +46,7 @@ class MainActivityViewModel : ViewModel() {
 }
 
 
-sealed class MainActivityViewState(){
+sealed class MainActivityViewState() {
     object FieldErrorName : MainActivityViewState()
     object SuccessName : MainActivityViewState()
     object FieldErrorEmail : MainActivityViewState()
@@ -56,13 +55,6 @@ sealed class MainActivityViewState(){
     object SuccessDni : MainActivityViewState()
     object SuccessBtn : MainActivityViewState()
     object FieldErrorBtn : MainActivityViewState()
-
-
-
-
-
-
-
 
 
 }
